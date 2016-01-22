@@ -1,0 +1,122 @@
+
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" id="ng-app" ng-app="app"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" id="ng-app" ng-app="app"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" id="ng-app" ng-app="app"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" id="ng-app" ng-app="app"> <!--<![endif]-->
+  <head>
+    <title>Havoc Autocomplete with AngularJS</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <link rel="stylesheet" href="css/structure.css"/>
+    <link rel="stylesheet" href="css/angucomplete-alt.css"/>
+    <link rel="stylesheet" href="http://ghiden.github.io/angucomplete-alt/fonts/bariol/bariol.css"/>
+    </head>
+  <body ng-controller="MainController">
+    <!--[if lt IE 9]>
+      <script src="js/libs/es5-shim.min.js"></script>
+      <script src="js/libs/json3.min.js"></script>
+    <![endif]-->
+
+    <a href="https://github.com/nadeemnazeer3/autosuggest.git"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork havoc autocomplete on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+
+    <div>
+
+      <h1>Havoc Autocomplete</h1>
+      <h2>Awesome Autocompleteness for healthcare apps using AngularJS</h2>
+      <p>
+      A minimal looking autocomplete directive originally developed by <a href="https://github.com/darylrowland/angucomplete">Angucomplete</a>, and I added few tweaks to use it alongside <a href="github.com/chintanop/health-vocabulary-rest-api">Havoc</a>.
+      </p>
+
+<h4>Note: For testing results filtered for Disease or Syndrome / Neoplastic Process semantic types only.</h4>
+
+      <div class="large-padded-row">
+
+        <h3><a name="example5" class="page-anchor">Using Havoc Search API</a></h3>
+        <div class="padded-row">
+<pre>
+&lt;div angucomplete-alt 
+  id="ex1" 
+  placeholder="Search concepts" 
+  pause="500" 
+  selected-object="selectedConcept" 
+  remote-url="http://havoc.appliedinformaticsinc.com/search/concepts" 
+  remote-url-request-formatter="remoteUrlRequestFn" 
+  remote-url-data-field="items" 
+  title-field="term" 
+  description-field="semantic_term" 
+  minlength="3" input-class="form-control form-control-large" 
+  match-class="highlight"&gt;
+&lt;/div&gt;
+</pre>
+        </div>
+        <div class="padded-row">
+          <div angucomplete-alt id="ex1" placeholder="Search concepts" pause="500" selected-object="selectedConcept" remote-url="http://havoc.appliedinformaticsinc.com/search/concepts" remote-url-request-formatter="remoteUrlRequestFn" remote-url-data-field="items" title-field="term" minlength="3" input-class="form-control form-control-large" match-class="highlight">
+          </div>
+        </div>
+        <div class="result">
+          <div class="" ng-show="selectedConcept">
+            Concept: <span class="bold-span">{{selectedConcept.originalObject.cui}}</span>
+          </div>
+        </div>
+
+      </div>
+
+
+            <div class="large-padded-row">
+
+        <h3><a name="example5" class="page-anchor">Using Havoc Search API (Index based on MRXNS_ENG)</a></h3>
+        <div class="padded-row">
+<pre>
+&lt;div angucomplete-alt 
+  id="ex2" 
+  placeholder="Search concepts" 
+  pause="500" 
+  selected-object="selectedConcept" 
+  remote-url="http://havoc.appliedinformaticsinc.com/search/concepts?index" 
+  remote-url-request-formatter="remoteUrlRequestFn" 
+  remote-url-data-field="items" 
+  title-field="term" 
+  description-field="semantic_term" 
+  minlength="3" input-class="form-control form-control-large" 
+  match-class="highlight"&gt;
+&lt;/div&gt;
+</pre>
+        </div>
+        <div class="padded-row">
+          <div angucomplete-alt id="ex1" placeholder="Search concepts" pause="500" selected-object="selectedConcept2" remote-url="http://havoc.appliedinformaticsinc.com/search/concepts?index" remote-url-request-formatter="remoteUrlRequestFn" remote-url-data-field="items" title-field="term" description-field="semantic_term" minlength="3" input-class="form-control form-control-large" match-class="highlight">
+          </div>
+        </div>
+        <div class="result">
+          <div class="" ng-show="selectedConcept2">
+            Concept: <span class="bold-span">{{selectedConcept2.originalObject.cui}}</span>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+      </div>
+
+   <div class="very-large-padded-row">
+      
+        <h5>Powered by Havoc (<a href="http://twitter.com/healthvocab">@healthvocab</a>)</h5>
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-touch.min.js"></script>
+      <script src="js/libs/angucomplete-alt.js"></script>
+      <script src="js/app.js"></script>
+    </div>
+    <footer>
+
+     <div class="very-large-padded-row">
+        <p><a href="http://appliedinformaticsinc.com/">© Applied Informatics Inc. 2016</a>.</p>
+      
+      </div>
+      
+    </footer>
+  </body>
+</html>
